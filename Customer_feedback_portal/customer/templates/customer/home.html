@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Home</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+</head>
+<body style="background-image: url('/static/customer/images/bg2.jpg');">
+
+<nav class="navbar navbar-inverse">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <a class="navbar-brand" href="#">WELCOME {{user.first_name}} {{user.last_name}}</a>
+    </div>
+  
+  <ul class="nav navbar-nav navbar-right">
+    <li><a href="logout"><span class="glyphicon glyphicon-user"></span>Log Out</a></li>
+  </ul>
+  </div>
+</nav>
+<div class="view intro-2">
+    <div class="full-bg-img">
+      <div class="mask rgba-black-light flex-center">
+        <div class="container text-center white-text">
+          <div class="white-text text-center wow fadeInUp">
+            <h1>WELCOME {{user.first_name}} {{user.last_name}}</h1>
+            <h4>You can submit your feedback</h4>
+            <br>
+            <div class="container">
+                <a href="feedback" class="btn btn-primary btn-lg" role="button">Submit Feedback</a>
+                <a href="logout" class="btn btn-primary btn-lg" role="button">Logout</a>
+              </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+{% if messages %}
+    {% for msg in messages %}
+        <script>
+            alert('{{msg}}');
+        </script>
+    {% endfor %}
+{% endif %}
+</body>
+</html>

@@ -1,0 +1,74 @@
+<!-- <!DOCTYPE html>  
+<html lang="en">  
+<head>  
+    <meta charset="UTF-8">  
+    <title>FeedBack </title>  
+</head>  
+<body>  
+    <div class="container py-5">
+        <h1>Customer FeedBack</h1>
+        <form method="POST">
+          {% csrf_token %}
+          {{ form.as_p }}
+          <button class="btn btn-primary" type="submit">Submit Feedback</button>
+        </form>
+      </div>
+</body>  
+</html>   -->
+
+
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<!-- Font Awesome -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+	<!-- Bootstrap core CSS -->
+	<link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/css/bootstrap.min.css" rel="stylesheet">
+	<!-- Material Design Bootstrap -->
+	<link href="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.5.15/css/mdb.min.css" rel="stylesheet">	
+	<title>{% block title %}
+	  Customer FeedBack
+	{% endblock  %}</title>
+</head>
+<body style="background-image: url('/static/customer/images/bg2.jpg');">
+			<!-- Default form login -->
+			&nbsp;
+			<br>
+      {% if messages %}
+            {% for msg in messages %}
+            <script>
+              alert('{{msg}}');
+            </script>
+            {% endfor %}
+      {% endif %}
+			
+			<div class="container">
+				<div class="col-12">
+					<div>
+						<form class="text-center border border-light p-6" method="POST">
+			
+							<p class="h2 ">Customer FeedBack</p>
+							{% csrf_token %}
+							
+							{% for field in form  %}
+								<div>
+                  <label class="col-sm-4 h5" >{{ field.label_tag }}</label>
+                   <!-- <div class="col-sm-4">{{ field }}</div> -->
+                  {{ field }}
+                </div>				
+							{% endfor %}
+							<!-- Sign in button -->
+							<button class="btn btn-info btn-block my-4" type="submit">Submit Feedback</button>
+
+							<p>
+								<a href="home" role="button" class="btn btn-info btn-block">Home</a>
+							</p>
+						</form>
+						<!-- Default form login -->
+					</div>
+				</div>
+			</div>
+</body>
+</html>
